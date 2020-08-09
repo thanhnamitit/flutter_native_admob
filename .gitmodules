@@ -1,0 +1,3 @@
+[submodule "flutter_native_admob"]
+	path = flutter_native_admob
+	url = https://github.com/thanhnamitit/flutter_native_admob.git
