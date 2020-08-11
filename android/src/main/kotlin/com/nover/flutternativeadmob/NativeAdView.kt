@@ -92,7 +92,7 @@ class NativeAdView @JvmOverloads constructor(
 
         // Some assets are guaranteed to be in every UnifiedNativeAd.
         adMedia?.setMediaContent(nativeAd.mediaContent)
-        adMedia?.setImageScaleType(ImageView.ScaleType.FIT_CENTER)
+        adMedia?.setImageScaleType(ImageView.ScaleType.CENTER_INSIDE)
 
         adHeadline.text = nativeAd.headline
         adBody?.text = nativeAd.body
@@ -142,7 +142,6 @@ class NativeAdView @JvmOverloads constructor(
 
     private fun updateOptions() {
         adMedia?.visibility = if (options.showMediaContent) View.VISIBLE else View.GONE
-
         ratingBar.progressDrawable
                 .setColorFilter(options.ratingColor, PorterDuff.Mode.SRC_ATOP)
 

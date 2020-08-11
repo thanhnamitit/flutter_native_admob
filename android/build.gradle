@@ -44,4 +44,5 @@ dependencies {
     api 'com.google.firebase:firebase-ads:19.0.0'
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-rc1"
     implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation "androidx.cardview:cardview:1.0.0"
 }
