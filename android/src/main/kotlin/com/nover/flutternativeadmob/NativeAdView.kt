@@ -12,7 +12,7 @@ import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.google.android.gms.ads.formats.UnifiedNativeAdView
 
 enum class NativeAdmobType {
-    full, banner
+    full, banner, conversationHome
 }
 
 class NativeAdView @JvmOverloads constructor(
@@ -47,6 +47,7 @@ class NativeAdView @JvmOverloads constructor(
         val layout = when (type) {
             NativeAdmobType.full -> R.layout.native_admob_full_view
             NativeAdmobType.banner -> R.layout.native_admob_custom_banner_view
+            else -> R.layout.conversation_home
         }
         inflater.inflate(layout, this, true)
 
@@ -65,7 +66,8 @@ class NativeAdView @JvmOverloads constructor(
 
         ratingBar = adView.findViewById(R.id.ad_stars)
 
-        adAttribution.background = Color.parseColor("#FFCC66").toRoundedColor(3f)
+        val color = if (type == NativeAdmobType.conversationHome) "#676767" else "#676767"
+        adAttribution.background = Color.parseColor(color).toRoundedColor(3f)
         callToAction = adView.findViewById(R.id.ad_call_to_action)
 
         initialize()
@@ -146,30 +148,22 @@ class NativeAdView @JvmOverloads constructor(
                 .setColorFilter(options.ratingColor, PorterDuff.Mode.SRC_ATOP)
 
         options.adLabelTextStyle.backgroundColor?.let {
-            adAttribution.background = it.toRoundedColor(3f)
+            adAttribution.background = it.toRoundedColor(4f)
         }
-        adAttribution.textSize = options.adLabelTextStyle.fontSize
-        adAttribution.setTextColor(options.adLabelTextStyle.color)
-        adAdvertiser.visibility = options.adLabelTextStyle.visibility
 
         adHeadline.setTextColor(options.headlineTextStyle.color)
-        adHeadline.textSize = options.headlineTextStyle.fontSize
         adHeadline.visibility = options.headlineTextStyle.visibility
 
         adAdvertiser.setTextColor(options.advertiserTextStyle.color)
-        adAdvertiser.textSize = options.advertiserTextStyle.fontSize
         adAdvertiser.visibility = options.advertiserTextStyle.visibility
 
         adBody?.setTextColor(options.bodyTextStyle.color)
-        adBody?.textSize = options.bodyTextStyle.fontSize
         adBody?.visibility = options.bodyTextStyle.visibility
 
         adStore?.setTextColor(options.storeTextStyle.color)
-        adStore?.textSize = options.storeTextStyle.fontSize
         adStore?.visibility = options.storeTextStyle.visibility
 
         adPrice?.setTextColor(options.priceTextStyle.color)
-        adPrice?.textSize = options.priceTextStyle.fontSize
         adPrice?.visibility = options.priceTextStyle.visibility
 
         callToAction.setTextColor(options.callToActionStyle.color)
