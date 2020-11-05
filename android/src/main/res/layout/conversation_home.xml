@@ -42,11 +42,11 @@
                 android:id="@+id/ad_icon"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:riv_corner_radius="27dp"
-                tools:background="@android:color/black" />
+                app:riv_corner_radius="27dp" />
 
             <TextView
                 android:id="@+id/ad_advertiser"
@@ -72,12 +72,14 @@
             <TextView
                 android:id="@+id/ad_attribution"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:paddingStart="4dp"
+                android:paddingTop="2dp"
                 android:paddingEnd="4dp"
+                android:paddingBottom="2dp"
                 android:text="@string/ad_label"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp"
@@ -86,57 +88,8 @@
                 app:layout_constraintStart_toEndOf="@id/ad_advertiser"
                 app:layout_constraintTop_toTopOf="@id/ad_advertiser" />
 
-            <RatingBar
-                android:id="@+id/ad_stars"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:stepSize="0.5"
-                app:layout_constraintBottom_toBottomOf="@id/ad_attribution"
-                app:layout_constraintStart_toEndOf="@id/ad_attribution"
-                app:layout_constraintTop_toTopOf="@id/ad_attribution" />
-
             <TextView
                 android:id="@+id/ad_body"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toTopOf="@id/ad_headline"
-                app:layout_constraintStart_toStartOf="@id/ad_advertiser"
-                app:layout_constraintTop_toBottomOf="@id/ad_advertiser"
-                tools:text="con voi to to" />
-
-            <Button
-                android:id="@+id/ad_call_to_action"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:background="@null"
-                android:fontFamily="@font/roboto"
-                android:gravity="center"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:paddingTop="0dp"
-                android:paddingBottom="0dp"
-                android:textColor="#FF2196F3"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/ad_advertiser"
-                app:layout_constraintTop_toBottomOf="@id/ad_body"
-                tools:text="Buy now" />
-
-            <TextView
-                android:id="@+id/ad_headline"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -145,15 +98,28 @@
                 android:fontFamily="@font/roboto"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                android:textColor="#FF2196F3"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@id/ad_call_to_action"
                 app:layout_constraintEnd_toStartOf="@id/ad_icon_container"
                 app:layout_constraintStart_toStartOf="@id/ad_advertiser"
-                app:layout_constraintTop_toBottomOf="@id/ad_body"
-                app:layout_goneMarginBottom="0dp"
-                tools:text="Sua chua vinamilk" />
+                app:layout_constraintTop_toBottomOf="@id/ad_advertiser"
+                tools:text="con voi to to" />
 
+            <TextView
+                android:id="@+id/ad_call_to_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
+                android:background="@null"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:textColor="#0477fb"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/ad_advertiser"
+                app:layout_constraintTop_toBottomOf="@id/ad_body"
+                tools:text="Buy now" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.gms.ads.formats.UnifiedNativeAdView>
 </merge>
