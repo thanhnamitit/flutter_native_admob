@@ -16,27 +16,6 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/ad_icon_container"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                app:cardBackgroundColor="#E0E0E0"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.gms.ads.formats.MediaView
-                    android:id="@+id/ad_media"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </androidx.cardview.widget.CardView>
-
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/ad_icon"
@@ -54,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="2dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto"
                 android:gravity="center_vertical"
@@ -63,7 +42,7 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/ad_body"
-                app:layout_constraintEnd_toStartOf="@id/ad_icon_container"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ad_attribution"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_goneMarginStart="0dp"
@@ -92,14 +71,13 @@
                 android:id="@+id/ad_body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto"
                 android:gravity="center_vertical"
                 android:maxLines="2"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toTopOf="@id/ad_call_to_action"
-                app:layout_constraintEnd_toStartOf="@id/ad_icon_container"
+                app:layout_constraintEnd_toEndOf="@id/ad_headline"
                 app:layout_constraintStart_toStartOf="@id/ad_attribution"
                 app:layout_constraintTop_toBottomOf="@id/ad_headline"
                 tools:text="con voi to to" />
