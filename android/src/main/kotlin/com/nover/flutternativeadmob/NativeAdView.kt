@@ -79,7 +79,7 @@ class NativeAdView @JvmOverloads constructor(
         adView.headlineView = adHeadline
         adView.bodyView = adBody
         adView.callToActionView = callToAction
-        adView.iconView = adView.findViewById(R.id.ad_icon)
+        adView.imageView = adView.findViewById(R.id.ad_icon)
         adView.priceView = adPrice
         // adView.starRatingView = ratingBar
         adView.storeView = adStore
@@ -103,7 +103,13 @@ class NativeAdView @JvmOverloads constructor(
         }
         // These assets aren't guaranteed to be in every UnifiedNativeAd, so it's important to
         // check before trying to display them.
-        val icon = nativeAd.icon
+        val icon = nativeAd.icon ?: nativeAd.images.lastOrNull()
+        if (icon == null) {
+            adView.imageView.visibility = View.GONE
+        } else {
+            (adView.imageView as? ImageView)?.setImageDrawable(icon.drawable)
+            adView.imageView.visibility = View.VISIBLE
+        }
 
         if (nativeAd.price == null) {
             adPrice?.visibility = View.INVISIBLE
